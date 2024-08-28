@@ -1,8 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Anasayfa";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1>Hoş Geldiniz!</h1>
+<p>Prime Clean'e hoş geldiniz! Profesyonel temizlik hizmetlerimiz hakkında daha fazla bilgi almak için aşağıdaki bağlantıları kullanabilirsiniz.</p>
+
+<a asp-action="About" class="btn btn-primary">Hakkımızda</a>
+<a asp-action="Services" class="btn btn-primary">Hizmetlerimiz</a>
+<a asp-action="Contact" class="btn btn-primary">Bize Ulaşın</a>
+<a asp-action="Planner" class="btn btn-primary">Temizlik Planlayıcı</a>

@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Room>
+
+<h2>Oda Yönetimi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Oda Adı</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var room in Model)
+        {
+            <tr>
+                <td>@room.Name</td>
+                <td>
+                    <a asp-action="EditRoom" asp-route-id="@room.Id">Düzenle</a> |
+                    <a asp-action="DetailsRoom" asp-route-id="@room.Id">Detaylar</a> |
+                    <a asp-action="DeleteRoom" asp-route-id="@room.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="CreateRoom" class="btn btn-primary">Yeni Oda Oluştur</a>

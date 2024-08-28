@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CleaningTask>
+
+<h2>Temizlik Görevleri Yönetimi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Görev Adı</th>
+            <th>Fiyat</th>
+            <th>Oda</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Name</td>
+                <td>@task.Price.ToString("C")</td>
+                <td>@task.Room.Name</td>
+                <td>
+                    <a asp-action="EditCleaningTask" asp-route-id="@task.Id">Düzenle</a> |
+                    <a asp-action="DetailsCleaningTask" asp-route-id="@task.Id">Detaylar</a> |
+                    <a asp-action="DeleteCleaningTask" asp-route-id="@task.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="CreateCleaningTask" class="btn btn-primary">Yeni Temizlik Görevi Oluştur</a>

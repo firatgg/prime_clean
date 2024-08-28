@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ReservationDetail>
+
+<h2>Rezervasyon Detayları Yönetimi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Rezervasyon ID</th>
+            <th>Temizlik Görevi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detail in Model)
+        {
+            <tr>
+                <td>@detail.ReservationId</td>
+                <td>@detail.CleaningTask.Name</td>
+                <td>
+                    <a asp-action="EditReservationDetail" asp-route-id="@detail.Id">Düzenle</a> |
+                    <a asp-action="DetailsReservationDetail" asp-route-id="@detail.Id">Detaylar</a> |
+                    <a asp-action="DeleteReservationDetail" asp-route-id="@detail.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="CreateReservationDetail" class="btn btn-primary">Yeni Rezervasyon Detayı Oluştur</a>

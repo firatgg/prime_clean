@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Reservation>
+
+<h2>Rezervasyon Yönetimi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Rezervasyon Tarihi</th>
+            <th>Oluşturma Tarihi</th>
+            <th>Müşteri</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var reservation in Model)
+        {
+            <tr>
+                <td>@reservation.ReservationDate.ToShortDateString()</td>
+                <td>@reservation.CreatedDate.ToShortDateString()</td>
+                <td>@reservation.Customer.Name</td>
+                <td>
+                    <a asp-action="EditReservation" asp-route-id="@reservation.Id">Düzenle</a> |
+                    <a asp-action="DetailsReservation" asp-route-id="@reservation.Id">Detaylar</a> |
+                    <a asp-action="DeleteReservation" asp-route-id="@reservation.Id">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="CreateReservation" class="btn btn-primary">Yeni Rezervasyon Oluştur</a>

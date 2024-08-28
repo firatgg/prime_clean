@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Temizlik Planlayıcı";
+}
+
+<h1>Temizlik Planlayıcı</h1>
+<p>Temizlik planınızı oluşturun: Hangi odalarda hangi hizmetleri istiyorsunuz?</p>
+
+<form asp-action="SubmitPlan">
+    <!-- Müşterilerin seçeceği hizmetler ve odalar buraya eklenecek -->
+    <button type="submit" class="btn btn-primary">Planı Gönder</button>
+</form>

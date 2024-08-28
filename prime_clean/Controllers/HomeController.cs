@@ -1,32 +1,58 @@
+using Entity.Entities;
 using Microsoft.AspNetCore.Mvc;
-using prime_clean.Models;
-using System.Diagnostics;
+using Entity.Entities;
 
 namespace prime_clean.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
-
+        // Anasayfa (Home)
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        // Hakkýmýzda (About Us)
+        public IActionResult About()
         {
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        // Ýletiþim (Contact)
+        [HttpGet]
+        public IActionResult Contact()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Contact(Contact contact)
+        {
+            if (ModelState.IsValid)
+            {
+                // Veritabanýna kaydetme iþlemleri burada yapýlacak.
+                // Örnek: _context.Contacts.Add(contact); _context.SaveChanges();
+                return RedirectToAction("ContactSuccess");
+            }
+            return View(contact);
+        }
+
+        public IActionResult ContactSuccess()
+        {
+            return View();
+        }
+
+        // Hizmetlerimiz (Our Services)
+        public IActionResult Services()
+        {
+            return View();
+        }
+
+        // Temizlik Planlayýcý (Cleaning Planner)
+        public IActionResult Planner()
+        {
+            // Kullanýcýya temizlik planlayýcý formunu gösterecek.
+            return View();
         }
     }
 }
